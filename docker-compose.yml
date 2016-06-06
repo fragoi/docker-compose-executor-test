@@ -1,0 +1,29 @@
+version: '2'
+services:
+
+  war:
+    mem_limit: 1024m
+    image: nginx
+    environment:
+    - ENVIRONMENT=test
+    extra_hosts:
+    - extrahost.test.net:216.58.210.228
+
+  web:
+    mem_limit: 1024m
+    image: nginx
+    links:
+    - war:tomcat
+    networks:
+      default:
+        aliases:
+        - alias1.test.net
+        - alias2.test.net
+    ports:
+    - 80:80
+    - 443:443
+
+networks:
+  default:
+    external:
+      name: testnet
