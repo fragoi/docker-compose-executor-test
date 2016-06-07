@@ -1,0 +1,46 @@
+{
+  "id": "/docker-compose-test",
+  "cmd": "./docker-compose-Linux-x86_64 up",
+  "cpus": 1,
+  "mem": 512,
+  "disk": 0,
+  "instances": 1,
+  "healthChecks": [
+    {
+      "path": "/",
+      "protocol": "HTTP",
+      "portIndex": 0,
+      "gracePeriodSeconds": 60,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3,
+      "ignoreHttp1xx": false
+    }
+  ],
+  "portDefinitions": [
+    {
+      "port": 10001,
+      "protocol": "tcp",
+      "labels": {}
+    },
+    {
+      "port": 10002,
+      "protocol": "tcp",
+      "labels": {}
+    }
+  ],
+  "fetch": [
+    {
+      "uri": "https://github.com/docker/compose/releases/download/1.7.1/docker-compose-Linux-x86_64",
+      "extract": false,
+      "executable": true,
+      "cache": false
+    },
+    {
+      "uri": "https://raw.githubusercontent.com/fragoi/docker-compose-executor-test/master/docker-compose.yml",
+      "extract": false,
+      "executable": false,
+      "cache": false
+    }
+  ]
+}
