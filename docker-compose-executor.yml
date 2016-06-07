@@ -1,5 +1,5 @@
 {
-  "id": "/test",
+  "id": "/docker-compose-executor-test",
   "cmd": "echo hello world",
   "cpus": 1,
   "mem": 64,
