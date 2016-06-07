@@ -20,8 +20,8 @@ services:
         - alias1.test.net
         - alias2.test.net
     ports:
-    - $PORT0:80
-    - $PORT1:443
+    - 80:80
+    - 443:443
 
 networks:
   default:
